@@ -1,0 +1,836 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =====================================
+   BODY
+===================================== */
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        120deg,
+        #14102b,
+        #30206b,
+        #4c27e8,
+        #14102b
+    );
+
+    background-size: 400% 400%;
+
+    animation: bgMove 12s ease infinite;
+}
+
+
+/* =====================================
+   BACKGROUND LUAR
+===================================== */
+
+.page-bg {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.page-bg span {
+    position: absolute;
+
+    display: block;
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+
+    opacity: 0.25;
+
+    animation: outsideBubble 10s linear infinite;
+}
+
+.page-bg span:nth-child(1) {
+    width: 250px;
+    height: 250px;
+
+    background: #00d9ff;
+
+    left: -80px;
+    top: 10%;
+}
+
+.page-bg span:nth-child(2) {
+    width: 180px;
+    height: 180px;
+
+    background: #a855f7;
+
+    right: 5%;
+    top: 5%;
+
+    animation-delay: 2s;
+}
+
+.page-bg span:nth-child(3) {
+    width: 300px;
+    height: 300px;
+
+    background: #633cff;
+
+    right: -100px;
+    bottom: -100px;
+
+    animation-delay: 4s;
+}
+
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.container {
+    position: relative;
+
+    width: 900px;
+    height: 520px;
+
+    max-width: 95vw;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #111;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+
+    z-index: 5;
+}
+
+
+/* =====================================
+   GELEMBUNG DI DALAM KOTAK
+===================================== */
+
+.animated-bg {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.animated-bg span {
+    position: absolute;
+
+    display: block;
+
+    bottom: -120px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    filter: blur(2px);
+
+    animation: bubbleUp 7s linear infinite;
+}
+
+.animated-bg span:nth-child(1) {
+    width: 90px;
+    height: 90px;
+
+    left: 3%;
+
+    background: #00d9ff;
+
+    animation-delay: 0s;
+}
+
+.animated-bg span:nth-child(2) {
+    width: 60px;
+    height: 60px;
+
+    left: 20%;
+
+    background: #8b5cf6;
+
+    animation-delay: 1.5s;
+}
+
+.animated-bg span:nth-child(3) {
+    width: 130px;
+    height: 130px;
+
+    left: 38%;
+
+    background: #a855f7;
+
+    animation-delay: 3s;
+}
+
+.animated-bg span:nth-child(4) {
+    width: 70px;
+    height: 70px;
+
+    left: 60%;
+
+    background: #00bfff;
+
+    animation-delay: 2s;
+}
+
+.animated-bg span:nth-child(5) {
+    width: 110px;
+    height: 110px;
+
+    left: 78%;
+
+    background: #7c3aed;
+
+    animation-delay: 4s;
+}
+
+.animated-bg span:nth-child(6) {
+    width: 55px;
+    height: 55px;
+
+    left: 92%;
+
+    background: #22d3ee;
+
+    animation-delay: 5s;
+}
+
+
+/* =====================================
+   ANIMASI GELEMBUNG
+===================================== */
+
+@keyframes bubbleUp {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translateY(-260px) scale(1.15);
+        opacity: 0.35;
+    }
+
+    80% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(-620px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+.form-container {
+    position: absolute;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(17, 17, 17, 0.90);
+
+    transition:
+        transform 0.7s ease,
+        opacity 0.7s ease;
+
+    z-index: 5;
+}
+
+.form-container form {
+    position: relative;
+
+    width: 70%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    z-index: 20;
+}
+
+.form-container h1 {
+    color: white;
+
+    font-size: 36px;
+
+    margin-bottom: 25px;
+}
+
+.form-container input {
+    width: 100%;
+
+    height: 46px;
+
+    margin: 7px 0;
+
+    padding: 0 15px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    background: #252525;
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.form-container input::placeholder {
+    color: #888;
+}
+
+.form-container input:focus {
+    background: #292929;
+
+    box-shadow:
+        0 0 0 2px #633cff,
+        0 0 20px rgba(99, 60, 255, 0.3);
+}
+
+.form-container button {
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #4c27e8,
+        #7148ff
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.form-container button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(76, 39, 232, 0.5);
+}
+
+.form-container button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-container p {
+    color: #aaa;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+}
+
+.form-container a {
+    color: #7658ff;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.form-container a:hover {
+    color: #a18cff;
+}
+
+.form-error {
+    color: #ff6b6b !important;
+    margin-top: 10px !important;
+    font-size: 13px !important;
+}
+
+.form-success {
+    color: #4ade80 !important;
+    margin-top: 10px !important;
+    font-size: 13px !important;
+}
+
+
+/* =====================================
+   LOGIN / SIGN UP POSISI
+===================================== */
+
+.login-form {
+    left: 0;
+    opacity: 1;
+}
+
+.signup-form {
+    left: 50%;
+    opacity: 0;
+}
+
+
+/* =====================================
+   OVERLAY
+===================================== */
+
+.overlay-container {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition:
+        transform 0.7s ease;
+}
+
+.overlay {
+    position: relative;
+
+    left: -100%;
+
+    width: 200%;
+    height: 100%;
+
+    display: flex;
+
+    background: linear-gradient(
+        135deg,
+        #4c27e8,
+        #713cff
+    );
+
+    transition:
+        transform 0.7s ease;
+}
+
+.overlay-panel {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 40px;
+}
+
+.overlay-panel h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.overlay-panel p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.ghost {
+    padding: 13px 40px;
+
+    border: 1px solid white;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.ghost:hover {
+    background: white;
+    color: #4c27e8;
+    transform: scale(1.05);
+}
+
+
+/* =====================================
+   MODE SIGN UP
+===================================== */
+
+.container.signup-mode .login-form {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.container.signup-mode .signup-form {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.container.signup-mode .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.signup-mode .overlay {
+    transform: translateX(50%);
+}
+
+
+/* =====================================
+   ANIMASI BACKGROUND LUAR
+===================================== */
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes outsideBubble {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, 80px) scale(1.2); }
+    100% { transform: translate(-50px, 150px) scale(0.8); }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 95vw;
+        height: 600px;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .signup-form {
+        left: 0;
+    }
+
+    .form-container form {
+        width: 80%;
+    }
+}
+
+
+/* =====================================
+   HALAMAN BIODATA
+===================================== */
+
+.biodata-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.biodata-card {
+    width: 430px;
+    max-width: 90vw;
+
+    padding: 45px 40px;
+
+    background: #111;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+
+    animation: muncul 0.6s ease;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.biodata-card .avatar {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #4d2be3, #7b4cff);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+
+    box-shadow: 0 0 30px rgba(77, 43, 227, 0.5);
+}
+
+.biodata-card h1 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.biodata-list {
+    text-align: left;
+
+    background: #1c1c1c;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+}
+
+.biodata-list .row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.biodata-list .row:last-child {
+    border-bottom: none;
+}
+
+.biodata-list .label {
+    color: #888;
+    font-size: 13px;
+}
+
+.biodata-list .value {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.logout-button {
+    width: 100%;
+
+    padding: 14px 0;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #4d2be3;
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.logout-button:hover {
+    background: #6545ff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(77, 43, 227, 0.4);
+}
+
+.logout-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ghost-button {
+    width: 100%;
+
+    padding: 13px 0;
+
+    border: 1px solid #444;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: #ccc;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.ghost-button:hover {
+    background: #1c1c1c;
+    border-color: #666;
+}
+
+.ghost-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   FORM EDIT BIODATA
+===================================== */
+
+.biodata-form {
+    text-align: left;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.biodata-form label {
+    color: #888;
+
+    font-size: 12px;
+
+    margin-top: 10px;
+
+    margin-bottom: 2px;
+}
+
+.biodata-form input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 14px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    background: #252525;
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.biodata-form input:focus {
+    background: #292929;
+
+    box-shadow:
+        0 0 0 2px #633cff,
+        0 0 20px rgba(99, 60, 255, 0.3);
+}
+
+.biodata-form-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}

@@ -1,0 +1,671 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =====================================
+   BODY
+===================================== */
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        120deg,
+        #14102b,
+        #30206b,
+        #4c27e8,
+        #14102b
+    );
+
+    background-size: 400% 400%;
+
+    animation: bgMove 12s ease infinite;
+}
+
+
+/* =====================================
+   BACKGROUND LUAR
+===================================== */
+
+.page-bg {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.page-bg span {
+    position: absolute;
+
+    display: block;
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+
+    opacity: 0.25;
+
+    animation: outsideBubble 10s linear infinite;
+}
+
+.page-bg span:nth-child(1) {
+    width: 250px;
+    height: 250px;
+
+    background: #00d9ff;
+
+    left: -80px;
+    top: 10%;
+}
+
+.page-bg span:nth-child(2) {
+    width: 180px;
+    height: 180px;
+
+    background: #a855f7;
+
+    right: 5%;
+    top: 5%;
+
+    animation-delay: 2s;
+}
+
+.page-bg span:nth-child(3) {
+    width: 300px;
+    height: 300px;
+
+    background: #633cff;
+
+    right: -100px;
+    bottom: -100px;
+
+    animation-delay: 4s;
+}
+
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.container {
+    position: relative;
+
+    width: 900px;
+    height: 520px;
+
+    max-width: 95vw;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #111;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+
+    z-index: 5;
+}
+
+
+/* =====================================
+   GELEMBUNG DI DALAM KOTAK
+===================================== */
+
+.animated-bg {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* Semua gelembung */
+
+.animated-bg span {
+    position: absolute;
+
+    display: block;
+
+    bottom: -120px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    filter: blur(2px);
+
+    animation: bubbleUp 7s linear infinite;
+}
+
+
+/* Bola 1 */
+
+.animated-bg span:nth-child(1) {
+    width: 90px;
+    height: 90px;
+
+    left: 3%;
+
+    background: #00d9ff;
+
+    animation-delay: 0s;
+}
+
+
+/* Bola 2 */
+
+.animated-bg span:nth-child(2) {
+    width: 60px;
+    height: 60px;
+
+    left: 20%;
+
+    background: #8b5cf6;
+
+    animation-delay: 1.5s;
+}
+
+
+/* Bola 3 */
+
+.animated-bg span:nth-child(3) {
+    width: 130px;
+    height: 130px;
+
+    left: 38%;
+
+    background: #a855f7;
+
+    animation-delay: 3s;
+}
+
+
+/* Bola 4 */
+
+.animated-bg span:nth-child(4) {
+    width: 70px;
+    height: 70px;
+
+    left: 60%;
+
+    background: #00bfff;
+
+    animation-delay: 2s;
+}
+
+
+/* Bola 5 */
+
+.animated-bg span:nth-child(5) {
+    width: 110px;
+    height: 110px;
+
+    left: 78%;
+
+    background: #7c3aed;
+
+    animation-delay: 4s;
+}
+
+
+/* Bola 6 */
+
+.animated-bg span:nth-child(6) {
+    width: 55px;
+    height: 55px;
+
+    left: 92%;
+
+    background: #22d3ee;
+
+    animation-delay: 5s;
+}
+
+
+/* =====================================
+   ANIMASI GELEMBUNG
+===================================== */
+
+@keyframes bubbleUp {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translateY(-260px) scale(1.15);
+
+        opacity: 0.35;
+    }
+
+    80% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(-620px) scale(0.8);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+.form-container {
+    position: absolute;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(17, 17, 17, 0.90);
+
+    transition:
+        transform 0.7s ease,
+        opacity 0.7s ease;
+
+    z-index: 5;
+}
+
+
+.form-container form {
+    position: relative;
+
+    width: 70%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    z-index: 20;
+}
+
+
+/* =====================================
+   JUDUL
+===================================== */
+
+.form-container h1 {
+    color: white;
+
+    font-size: 36px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================
+   INPUT
+===================================== */
+
+.form-container input {
+    width: 100%;
+
+    height: 46px;
+
+    margin: 7px 0;
+
+    padding: 0 15px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    background: #252525;
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.form-container input::placeholder {
+    color: #888;
+}
+
+.form-container input:focus {
+    background: #292929;
+
+    box-shadow:
+        0 0 0 2px #633cff,
+        0 0 20px rgba(99, 60, 255, 0.3);
+}
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.form-container button {
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #4c27e8,
+        #7148ff
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.form-container button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(76, 39, 232, 0.5);
+}
+
+
+/* =====================================
+   TEXT
+===================================== */
+
+.form-container p {
+    color: #aaa;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+}
+
+.form-container a {
+    color: #7658ff;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.form-container a:hover {
+    color: #a18cff;
+}
+
+
+/* =====================================
+   LOGIN
+===================================== */
+
+.login-form {
+    left: 0;
+
+    opacity: 1;
+}
+
+
+/* =====================================
+   SIGN UP
+===================================== */
+
+.signup-form {
+    left: 50%;
+
+    opacity: 0;
+}
+
+
+/* =====================================
+   OVERLAY
+===================================== */
+
+.overlay-container {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition:
+        transform 0.7s ease;
+}
+
+
+.overlay {
+    position: relative;
+
+    left: -100%;
+
+    width: 200%;
+    height: 100%;
+
+    display: flex;
+
+    background: linear-gradient(
+        135deg,
+        #4c27e8,
+        #713cff
+    );
+
+    transition:
+        transform 0.7s ease;
+}
+
+
+/* =====================================
+   PANEL
+===================================== */
+
+.overlay-panel {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 40px;
+}
+
+.overlay-panel h1 {
+    font-size: 36px;
+
+    margin-bottom: 15px;
+}
+
+.overlay-panel p {
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================
+   GHOST BUTTON
+===================================== */
+
+.ghost {
+    padding: 13px 40px;
+
+    border: 1px solid white;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.ghost:hover {
+    background: white;
+
+    color: #4c27e8;
+
+    transform: scale(1.05);
+}
+
+
+/* =====================================
+   MODE SIGN UP
+===================================== */
+
+.container.signup-mode .login-form {
+    transform: translateX(-100%);
+
+    opacity: 0;
+}
+
+.container.signup-mode .signup-form {
+    transform: translateX(0);
+
+    opacity: 1;
+}
+
+.container.signup-mode .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.signup-mode .overlay {
+    transform: translateX(50%);
+}
+
+
+/* =====================================
+   ANIMASI BACKGROUND LUAR
+===================================== */
+
+@keyframes bgMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes outsideBubble {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(100px, 80px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-50px, 150px) scale(0.8);
+    }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 95vw;
+
+        height: 600px;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .signup-form {
+        left: 0;
+    }
+
+    .form-container form {
+        width: 80%;
+    }
+}
