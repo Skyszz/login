@@ -2,4 +2,11 @@
 /*/node_modules/
 *.env
 /*/storage/logs/
-/*/.next/sss
+/*/.next/sssnode_modules/
+.next/
+.env.local
+.env
+kasir-baru/
+kasir-baru/
+spmb-react/
+profile-cn/
