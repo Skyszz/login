@@ -1,0 +1,52 @@
+.reg-page { min-height: 100vh; background: #f5f5f5; color: #1a2e24; font-family: Arial, Helvetica, sans-serif; display: flex; flex-direction: column; }
+
+/* NAVBAR */
+.reg-navbar { background: #2e8b5e; color: #fff; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+.reg-brand { display: flex; align-items: center; gap: 10px; }
+.reg-logo { background: rgba(255,255,255,0.2); width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-size: 15px; }
+.reg-brand-text { display: flex; flex-direction: column; }
+.reg-brand-text strong { font-size: 13px; }
+.reg-brand-text small { font-size: 8px; letter-spacing: 0.5px; opacity: 0.85; }
+.reg-nav { display: flex; align-items: center; gap: 22px; font-size: 11px; }
+.reg-nav a { color: #fff; text-decoration: none; }
+.reg-btn-masuk { background: #fff; color: #1a2e24 !important; padding: 7px 16px; border-radius: 8px; font-weight: bold; }
+
+/* ISI */
+.reg-main { flex: 1; max-width: 1000px; width: 100%; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.reg-badge { display: inline-block; background: #dcebe2; color: #2e8b5e; font-size: 8px; font-weight: bold; padding: 4px 10px; border-radius: 999px; }
+.reg-left h1 { font-size: 34px; line-height: 1.2; margin: 16px 0; color: #14301f; }
+.reg-left p { font-size: 12px; color: #5c6b62; line-height: 1.6; max-width: 360px; }
+.reg-list { list-style: none; padding: 0; margin: 20px 0; display: flex; flex-direction: column; gap: 12px; font-size: 11px; color: #3d4f45; }
+.reg-list span { margin-right: 8px; }
+.reg-login-box { background: #e3efe7; border: 1px solid #d3e5da; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; font-size: 11px; max-width: 360px; }
+.reg-login-box a { color: #2e8b5e; text-decoration: none; font-weight: bold; }
+
+/* KARTU FORM */
+.reg-card { background: #fff; border: 1px solid #e3e8e5; border-radius: 12px; padding: 20px 22px; }
+.reg-card h2 { font-size: 14px; margin: 0; }
+.reg-sub { font-size: 9px; color: #7a8780; }
+.reg-card form { margin-top: 12px; display: flex; flex-direction: column; gap: 4px; }
+.reg-card label { font-size: 9px; font-weight: bold; margin-top: 8px; }
+.reg-card input[type="text"], .reg-card input[type="email"], .reg-card input[type="password"], .reg-card input:not([type]) {
+  width: 100%; box-sizing: border-box; padding: 9px 10px; border: 1px solid #d8dedb; border-radius: 6px; font-size: 10px; background: #fff;
+}
+.reg-card input[name]:not([type="checkbox"]) { width: 100%; box-sizing: border-box; padding: 9px 10px; border: 1px solid #d8dedb; border-radius: 6px; font-size: 10px; }
+.reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.reg-hint, .reg-note { font-size: 8px; color: #7a8780; margin-top: 4px; }
+.reg-check { display: flex !important; align-items: flex-start; gap: 8px; font-weight: normal !important; font-size: 9px !important; margin-top: 12px !important; }
+.reg-check input { margin-top: 2px; accent-color: #2e8b5e; }
+.reg-submit { margin-top: 12px; width: fit-content; background: #2e8b5e; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: 11px; font-weight: bold; cursor: pointer; }
+.reg-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.reg-pesan { font-size: 10px; color: #b3261e; margin-top: 8px; }
+
+/* FOOTER */
+.reg-footer { background: #0d4a45; color: #fff; font-size: 9px; padding: 14px 40px; display: flex; justify-content: space-between; }
+.reg-footer div { display: flex; gap: 18px; }
+.reg-footer a { color: #fff; text-decoration: none; }
+
+/* HP */
+@media (max-width: 800px) {
+  .reg-main { grid-template-columns: 1fr; }
+  .reg-nav { display: none; }
+  .reg-navbar, .reg-footer { padding: 12px 16px; }
+}
